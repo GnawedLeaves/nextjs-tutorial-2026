@@ -35,6 +35,8 @@ export default function RootLayout({
           <Link href={"/contact"}>Contact</Link>
           <Link href={"/server-and-client"}>Server and Client</Link>
           <Link href={"/users"}>Users</Link>
+          <Link href={"/dynamic"}>Dynamic</Link>
+          <Link href={"/products"}>Products</Link>
         </div>
         {children}
       </body>

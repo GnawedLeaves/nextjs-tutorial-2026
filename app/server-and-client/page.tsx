@@ -2,7 +2,9 @@ import ButtonComponent from "./button";
 
 const ServerComponent = async () => {
   console.log("this is a server component");
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    cache: "no-store",
+  });
   const posts = await response.json();
 
   return (
