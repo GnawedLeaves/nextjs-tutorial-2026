@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import RefetchUserButton from "../refetchUserButton";
+import { fetchUserAction } from "../actions";
 
 interface UserPageProps {
   params: Promise<{ userId: string }>;
@@ -17,7 +19,7 @@ const fetchUser = async (userId: string) => {
 
 const UserPage = async ({ params }: UserPageProps) => {
   const { userId } = await params;
-  const user: any = await fetchUser(userId);
+  const user: any = await fetchUserAction(userId);
 
   if (!user) {
     notFound();
@@ -25,6 +27,11 @@ const UserPage = async ({ params }: UserPageProps) => {
   return (
     <div className="">
       <p>Email: {user.email}</p>
+      <RefetchUserButton
+        userId={userId}
+        refetchUser={fetchUserAction}
+        user={user}
+      />
     </div>
   );
 };
